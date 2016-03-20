@@ -40,7 +40,7 @@ update from https://github.com/wonderchief/qiniuCordova
         },function(e){
           console.log(e);
         });
-}
+    }
 
 # 录音并调用七牛
     $scope.recorderstop = function() {
