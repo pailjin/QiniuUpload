@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cc.legle.cordovaQiniu" version="1.0.0">
+	<name>qiniuUpload</name>
+	<description>基于七牛云编写的Cordova插件pail</description>
+	<license>Apache 2.0</license>
+	<keywords>cordova,qiniu,upload</keywords>
+	<js-module src="www/qiniuUpload.js" name="qiniuUpload">
+		<clobbers target="qiniuUpload"/>
+	</js-module>
+	<!--Android-->
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<!--配置功能-->
+			<feature name="upload">
+				<param name="android-package" value="com.cordova.qiniu.yumemor.plugin.QiniuPlugin" />
+			</feature>
+		</config-file>
+		<!--配置lib-->
+		<source-file src="src/android/libs/android-async-http-1.4.6.jar" target-dir="libs" framework="true" />
+		<source-file src="src/android/libs/happy-dns-0.2.4.jar" target-dir="libs" framework="true" />
+		<source-file src="src/android/libs/httpclient-4.3.6.jar" target-dir="libs" framework="true" />
+		<source-file src="src/android/libs/qiniu-android-sdk-7.0.4.jar" target-dir="libs" framework="true" />
+		<!--配置源码-->
+		<source-file src="src/android/java/QiniuPlugin.java" target-dir="src/com/cordova/qiniu/yumemor/plugin/"/>
+		<source-file src="src/android/java/QiniuKey.java" target-dir="src/com/cordova/qiniu/yumemor/plugin/"/>
+		<source-file src="src/android/java/StrUtils.java" target-dir="src/com/cordova/qiniu/yumemor/util/"/>
+	</platform>
+  <platform name="ios">
+    <config-file parent="/*" target="config.xml">
+      <feature name="upload">
+        <param name="ios-package" value="Qiniu" />
+      </feature>
+    </config-file>
+    <framework src="SystemConfiguration.framework" custom="false" />
+    <framework src="Security.framework" custom="false" />
+
+    <header-file src="src/ios/QiniuSDK/QiniuSDK-Prefix.pch" />
+
+    <header-file src="src/ios/Qiniu.h" />
+    <source-file src="src/ios/Qiniu.m" />
+
+    <header-file src="src/ios/QiniuSDK/QiniuBlkputRet.h" />
+    <source-file src="src/ios/QiniuSDK/QiniuBlkputRet.m" />
+
+    <header-file src="src/ios/QiniuSDK/QiniuConfig.h" />
+    <source-file src="src/ios/QiniuSDK/QiniuConfig.m" />
+
+    <header-file src="src/ios/QiniuSDK/QiniuHttpClient.h" />
+    <source-file src="src/ios/QiniuSDK/QiniuHttpClient.m" />
+
+    <header-file src="src/ios/QiniuSDK/QiniuResumableClient.h" />
+    <source-file src="src/ios/QiniuSDK/QiniuResumableClient.m" />
+
+    <header-file src="src/ios/QiniuSDK/QiniuResumableUploader.h" />
+    <source-file src="src/ios/QiniuSDK/QiniuResumableUploader.m" />
+
+    <header-file src="src/ios/QiniuSDK/QiniuSimpleUploader.h" />
+    <source-file src="src/ios/QiniuSDK/QiniuSimpleUploader.m" />
+
+    <header-file src="src/ios/QiniuSDK/QiniuUtils.h" />
+    <source-file src="src/ios/QiniuSDK/QiniuUtils.m" />
+
+    <header-file src="src/ios/QiniuSDK/QiniuUploadDelegate.h" />
+
+    <header-file src="src/ios/QiniuSDK/AFNetworking/AFNetworking.h" />
+
+    <header-file src="src/ios/QiniuSDK/AFNetworking/AFHTTPRequestOperation.h" />
+    <source-file src="src/ios/QiniuSDK/AFNetworking/AFHTTPRequestOperation.m" />
+
+    <header-file src="src/ios/QiniuSDK/AFNetworking/AFHTTPRequestOperationManager.h" />
+    <source-file src="src/ios/QiniuSDK/AFNetworking/AFHTTPRequestOperationManager.m" />
+
+    <header-file src="src/ios/QiniuSDK/AFNetworking/AFHTTPSessionManager.h" />
+    <source-file src="src/ios/QiniuSDK/AFNetworking/AFHTTPSessionManager.m" />
+
+    <header-file src="src/ios/QiniuSDK/AFNetworking/AFNetworkReachabilityManager.h" />
+    <source-file src="src/ios/QiniuSDK/AFNetworking/AFNetworkReachabilityManager.m" />
+
+    <header-file src="src/ios/QiniuSDK/AFNetworking/AFSecurityPolicy.h" />
+    <source-file src="src/ios/QiniuSDK/AFNetworking/AFSecurityPolicy.m" />
+
+    <header-file src="src/ios/QiniuSDK/AFNetworking/AFURLConnectionOperation.h" />
+    <source-file src="src/ios/QiniuSDK/AFNetworking/AFURLConnectionOperation.m" />
+
+    <header-file src="src/ios/QiniuSDK/AFNetworking/AFURLRequestSerialization.h" />
+    <source-file src="src/ios/QiniuSDK/AFNetworking/AFURLRequestSerialization.m" />
+
+    <header-file src="src/ios/QiniuSDK/AFNetworking/AFURLResponseSerialization.h" />
+    <source-file src="src/ios/QiniuSDK/AFNetworking/AFURLResponseSerialization.m" />
+
+    <header-file src="src/ios/QiniuSDK/AFNetworking/AFURLSessionManager.h" />
+    <source-file src="src/ios/QiniuSDK/AFNetworking/AFURLSessionManager.m" />
+
+
+
+  </platform>
+</plugin>
+
+
+

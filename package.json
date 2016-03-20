@@ -1,0 +1,30 @@
+{
+  "name": "cordovaQiniu",
+  "version": "0.1.0",
+  "description": "基于七牛云编写的Cordova插件",
+  "cordova": {
+    "id": "cc.legle.cordovaQiniu",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wonderchief/qiniuCordova.git"
+  },
+  "keywords": [
+    "cordova",
+    "qiniu",
+    "upload",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "wonderchief",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wonderchief/cordova-plugin-qiniu/issues"
+  },
+  "homepage": "https://github.com/wonderchief/cordova-plugin-qiniu#readme"
+}
