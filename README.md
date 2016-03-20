@@ -9,9 +9,15 @@ update from https://github.com/wonderchief/qiniuCordova
 2/ 更新qiniu的key（这个key文件为在七牛云服务器上的名字）
 使用cordova-plugin-audio-recorder-api录制了m4a文件后，得到了全路径文件名。
 此次更新，则是将key文件名，为去掉路径前缀的，仅仅留下文件名。
-如：iOS: /var/mobile/Applications/<UUID>/Library/NoCloud/<file-id>.m4a Android: /data/data/<app-id>/files/<file-id>.m4a
-而key截取的是<file-id>.m4
-这样在七牛上则看到的文件为：iOS: <prefix><file-id>.m4 , android: <prefix>/<file-id>.m4
+
+如：
+
+iOS: /var/mobile/Applications/[UUID]/Library/NoCloud/[file-id].m4a 
+
+Android: /data/data/[app-id]/files/[file-id].m4a
+而key截取的是file-id.m4
+
+这样在七牛上则看到的文件为：iOS: [prefix][file-id].m4 , android: [prefix]/[file-id].m4
 方便管理员管理文件。
 
 # 使用ionic中(传文件)
