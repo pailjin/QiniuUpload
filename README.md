@@ -35,7 +35,7 @@ Android: /data/data/[app-id]/files/[file-id].m4a
         options.filePath=[];
         options.filePath.push(filepath);
         options.uptoken=r.qiniuuptoken;
-        options.prefix='noneofbug-';
+        options.prefix='noneofbug-';//可选参数
 
           window.plugins.QiniuUpload.upload(options,function(re){ // plugin 调用
             console.log(re); 
