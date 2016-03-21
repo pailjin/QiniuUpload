@@ -1,7 +1,11 @@
 # 更新QiniuUpload
 update from https://github.com/wonderchief/qiniuCordova
 
-而且与cordova-plugin-audio-recorder-api （https://github.com/emj365/cordova-plugin-audio-recorder-api）组合使用。录音m4a文件，并上传到七牛云
+而且与cordova-plugin-audio-recorder-api 
+
+https://github.com/emj365/cordova-plugin-audio-recorder-api
+
+组合使用。录音m4a文件，并上传到七牛云
 修改了android代码和ios代码。
 # 解决
 1/ 支持prefix
