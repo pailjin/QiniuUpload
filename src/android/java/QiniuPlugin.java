@@ -83,8 +83,8 @@ public class QiniuPlugin extends CordovaPlugin implements UpCompletionHandler {
 
 	private void uploadFile(JSONArray args) throws JSONException,UnsupportedEncodingException {
 		flag = true;
-		String prefix = args.optJSONObject(0).getString("prefix");
-		String uptoken = args.optJSONObject(0).getString("uptoken");
+		String prefix = args.optJSONObject(0).optString("prefix");
+		String uptoken = args.optJSONObject(0).optString("uptoken");
 		if(uptoken == null || uptoken.isEmpty())
 		{
 			uptoken = QiniuKey.UPLOAD_TOKEN;
@@ -97,9 +97,19 @@ public class QiniuPlugin extends CordovaPlugin implements UpCompletionHandler {
 		push_count = filePaths.length();
 		for(int i = 0 ; i < filePaths.length() ; i++){
 			String filePath = filePaths.optString(i).replace("file://","");
-			//Log.d("filePath1:",filePath);
-			String filePathName = StrUtils.appendPrefix(prefix, StrUtils.getFileName(filePath));	//获取文件名称 添加前缀
-			Log.d("filePath2:",filePath);
+			
+			String filePathName = "";
+			Log.d("filePath1:",filePath);
+			if(prefix == null || prefix.isEmpty())
+			{
+				filePathName = StrUtils.getFileName(filePath);
+			}
+			else
+			{
+				filePathName = StrUtils.appendPrefix(prefix, StrUtils.getFileName(filePath));	//获取文件名称 添加前缀
+			}
+			
+			//Log.d("filePath:",filePath);
 			filePath = URLDecoder.decode(filePath, "UTF-8");	//文件路径解码
 			Log.d("filePathName:",filePathName);
 			uploadManager.put(new File(filePath), filePathName, uptoken, this,null);	//开始上传
@@ -109,12 +119,20 @@ public class QiniuPlugin extends CordovaPlugin implements UpCompletionHandler {
 	private void uploadArrayFile(JSONArray args) throws JSONException,UnsupportedEncodingException{
 		flag = true;
 		JSONObject jsons = args.optJSONObject(0);
-		String prefix = jsons.getString("prefix");
+		String prefix = jsons.optString("prefix");
 		JSONArray filePaths = jsons.optJSONArray("filePaths");
 		push_count = filePaths.length();
 		for(int i = 0 ; i < filePaths.length() ; i++){
 			String filePath = filePaths.optString(i);
-			String filePathName = StrUtils.appendPrefix(prefix, StrUtils.getFileName(filePath));	//获取文件名称 添加前缀
+			String filePathName = "";
+			if(prefix == null || prefix.isEmpty())
+			{
+				filePathName = StrUtils.getFileName(filePath);
+			}
+			else
+			{
+				filePathName = StrUtils.appendPrefix(prefix, StrUtils.getFileName(filePath));	//获取文件名称 添加前缀
+			}
 			filePath = URLDecoder.decode(filePath, "UTF-8");	//文件路径解码
 			uploadManager.put(new File(filePath), filePathName, QiniuKey.UPLOAD_TOKEN, this,null);	//开始上传
 		}

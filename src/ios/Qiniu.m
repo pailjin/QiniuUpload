@@ -61,7 +61,15 @@
 
         NSString *filename = [obj lastPathComponent]; 
         NSLog(@"filename:%@",filename);
-        keyfilename = [fileprefix stringByAppendingString:filename];
+        if(fileprefix != NULL)
+        {
+            keyfilename = [fileprefix stringByAppendingString:filename];
+        }
+        else
+        {
+            keyfilename = filename;
+        }
+        NSLog(@"filename22:%@",keyfilename);
         [self.sUploader uploadFile:obj key:keyfilename extra:nil];
     }
     
